@@ -1,6 +1,7 @@
 const express = require('express');
 const { ApolloServer, gql } = require('apollo-server-express');
 
+// They are typed, not just json as in Rest
 const bilbao = {nombre: 'Bilbao', conexiones: []}
 const madrid = {nombre: 'madrid', conexiones: []}
 const londres = {nombre: 'londres', conexiones: []}
@@ -45,6 +46,7 @@ const server = new ApolloServer({ typeDefs, resolvers });
 const app = express();
 server.applyMiddleware({ app });
 
+// Indicate the port in which the express application is listening
 app.listen({ port: 4000 }, () =>
   console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
 );

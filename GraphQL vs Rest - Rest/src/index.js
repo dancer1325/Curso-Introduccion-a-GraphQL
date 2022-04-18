@@ -1,6 +1,7 @@
 const express = require("express");
 const http = require("http");
 
+// Initialize express application
 const app = express();
 
 let aeropuertos = [
@@ -12,14 +13,15 @@ let aeropuertos = [
 
 app.get('/aeropuertos', function (req, res) {
   res.setHeader('Content-Type', 'application/json');
-  res.end(JSON.stringify(aeropuertos.map(aeropuerto => aeropuerto.nombre)));
+  res.end(JSON.stringify(aeropuertos.map(aeropuerto => aeropuerto.nombre)));    // res.send() End the response process
 });
 
 app.get('/conexiones', function (req, res) {
   res.setHeader('Content-Type', 'application/json');
-  res.end(JSON.stringify(aeropuertos.filter(aeropuerto => aeropuerto.nombre === req.query.aeropuerto)));
+  res.end(JSON.stringify(aeropuertos.filter(aeropuerto => aeropuerto.nombre === req.query.aeropuerto)));    // res.send() End the response process
 });
 
+// Indicate the port in which the express application is listening
 app.listen(4001, () => {
   console.log("El servidor está inicializado en el puerto 4001");
 });
