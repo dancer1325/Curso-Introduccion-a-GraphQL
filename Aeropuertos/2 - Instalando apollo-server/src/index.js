@@ -1,11 +1,15 @@
 const { ApolloServer, gql } = require('apollo-server');
+// ApolloServer     Allow us creating HTTP server to expose GraphQL
+// gql              Add remarked syntax
 
+// GraphQL schema
 const typeDefs = gql`
   type Query {
     hello: String
   }
 `;
 
+// How to resolve the previous queries === Response to return
 const resolvers = {
   Query: {
     hello: () => 'world',

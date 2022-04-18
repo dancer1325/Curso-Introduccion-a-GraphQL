@@ -6,5 +6,5 @@
 * Execute the files '.gql' into the folder 'Queries'
 
 # Notes
-* 'express'
-    * Fast, unopinionated, minimalist web framework for node
+* 'apollo-server-express'
+    * Apollo Server integration for express package

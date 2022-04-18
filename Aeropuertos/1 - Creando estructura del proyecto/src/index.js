@@ -1,1 +1,2 @@
-console.log('Ejecutando index.js')
+console.log('Ejecutando index.js in the port ${process.env.PORT} - with simple quotes - ')          // It doesn't do interpolation
+console.log(`Ejecutando index.js in the port ${process.env.PORT} - with back quotes - `)
