@@ -1,5 +1,9 @@
+# If you want to use this type which comes from external library, not necessary to import it
 scalar DateTime
 
+# Use the reserved keyword type, to define the objects
+# Although it's not specified directly in each schema's object, normally it's added an 'ID' attribute
+# ! indicate that it's mandatory
 type Aeropuerto {
   id: ID!
   localizacion: String!
