@@ -26,6 +26,9 @@ type Pasajero {
   apellido: String!
 }
 
+# Reserved type in GraphQL for querying
+# Root type for all query operations
 type Query {
+  #NameOfTheFunction: TypeToReturn
   listarAeropuertos: [Aeropuerto!]!
 }

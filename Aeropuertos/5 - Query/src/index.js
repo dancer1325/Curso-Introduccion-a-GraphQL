@@ -14,7 +14,9 @@ const sources = loadTypedefsSync(join(__dirname, './typeDefs.gql'), {
 const typeDefs = sources.map(source => source.document)
 
 const resolvers = {
-  Query: {
+    //Type query
+    Query: {
+    // NameOfTheFunction: LogicOfTheFunctionReturningSpecificType
     listarAeropuertos: () => {return  [{id: '1', localizacion:'Bilbao'}, {id: '2', localizacion:'Madrid'}, {id: '3', localizacion:'Lisboa'}]}
   },
 };
