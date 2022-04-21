@@ -11,6 +11,8 @@
 # How to run?
 * `npm install`
 * `npm run dev`
+* `npm run dev:noenv`
+  * Start up, without needing an '.env' file
 
 # Notes
 * 'graphql'

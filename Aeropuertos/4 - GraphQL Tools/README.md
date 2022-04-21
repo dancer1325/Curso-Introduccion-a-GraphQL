@@ -17,6 +17,8 @@
       * Solution: Create an '.env' file although it's not used at all
     * Problem1: ' "Query" defined in resolvers, but not in schema'
       * Solution: It's necessary to add 'type Query' in the '.gql' schema, but that will be fixed in next module
+* `npm run dev:noenv`
+  * Start up, without needing an '.env' file
 
 # Notes
 * 'graphql'
