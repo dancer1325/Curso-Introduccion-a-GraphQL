@@ -54,7 +54,8 @@ for (let i = 0; i<3; i++) {
   })
 }
 
-
+// file       Path name of the file to create
+// space      Add indentation, white space and line break characters. Higher number, more number of indentations
 fs.writeFile('dataset.json', JSON.stringify(aeropuertos, null, 4), 'utf8', (err)=>{
   if (err) {
     throw err;
