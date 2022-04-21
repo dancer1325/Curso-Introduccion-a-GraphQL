@@ -26,9 +26,14 @@ type Pasajero {
   apellido: String!
 }
 
+# Reserved type in GraphQL for querying
+# Root type for all query operations
 type Query {
+  #NameOfTheFunction: TypeToReturn
   listarAeropuertos: [Aeropuerto!]!
+  #NameOfTheFunction(ArgumentsToSendInTheQuery): TypeToReturn
   obtenerAeropuertoPorId(
+    # Since it's a query by id --> id must be mandatory
     id: ID!
     ): Aeropuerto
   obtenerAeropuerto(id: ID, localizacion: String): Aeropuerto
