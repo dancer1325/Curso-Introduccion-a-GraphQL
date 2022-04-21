@@ -20,23 +20,43 @@ const typeDefs = sources.map(source => source.document)
 
 const resolvers = {
   Query: {
+    // NameOfTheFunction: LogicOfTheFunctionReturningSpecificType
     listarAeropuertos: () => {return aeropuertos},
+    // A resolver can have several arguments
+    // NameOfTheFunction(parent, args, context, info): LogicOfTheFunctionReturningSpecificType
     obtenerAeropuertoPorId: (obj, args) => {
-      const response = aeropuertos.filter(aeropuerto => {
-        aeropuerto.id === args.id;
+      console.log("args.id === aeropuertos[2].id ", args.id === aeropuertos[2].id);
+      // 1) Arrow functions
+      // TODO: Why filter isn't working?
+      // const response = aeropuertos.filter(aeropuerto => {
+      //   aeropuerto.id === args.id;
+      // });
+      // 2) Common function
+      const response = aeropuertos.filter(function (aeropuerto) {
+        return aeropuerto.id === args.id;
       });
+      console.log(response);
+
+      // As any typical handling errors, you can define all kind of business logic as you want
+      if (response.length === 0) {
+        throw 'Airport not found'
+      }
+
       return response[0];
     },
+    // You can send the arguments destructured also
     obtenerAeropuerto: (obj, {id, localizacion}) => {
+      // TODO: Why is arrow function working in this case?
       const response = aeropuertos.filter(aeropuerto => {
-        if (aeropuerto.localizacion === localizacion || aeropuerto.id === id){
+        if (aeropuerto.localizacion === localizacion || aeropuerto.id === id) {
           return aeropuerto;
         }
-      }); 
+      });
       return response[0];
     }
   },
   Mutation: {
+    // NameOfTheFunction(parent, args, context, info): LogicOfTheFunctionReturningSpecificType
     crearPasajero: (obj, {idAvion, nombre, apellido}) => {
       const pasajero = {id: uuidv4(), nombre, apellido}
       let insertado = false
@@ -57,7 +77,6 @@ const resolvers = {
 
       throw 'Avion no existe';
     },
-
     actualizarVelocidadHora: (obj, {idAvion, velocidadHora}) => {
       let returnValue = null 
 
@@ -86,6 +105,9 @@ const server = new ApolloServer({
   resolvers,
 });
 
+// Indicated to port the start up the ApolloServer application
+// ApolloServer's port != GraphQL Server's port
+// It seems that this port is the really important to check it
 server.listen({port:5000}).then(({ url }) => {
   console.log(`Servidor iniciado en ${url}`);
 });

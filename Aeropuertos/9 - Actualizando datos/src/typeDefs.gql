@@ -26,15 +26,23 @@ type Pasajero {
   apellido: String!
 }
 
+# Reserved type in GraphQL for querying
+# Root type for all query operations
 type Query {
+  #NameOfTheFunction: TypeToReturn
   listarAeropuertos: [Aeropuerto!]!
+  #NameOfTheFunction(ArgumentsToSendInTheQuery): TypeToReturn
   obtenerAeropuertoPorId(
+    # Since it's a query by id --> id must be mandatory
     id: ID!
     ): Aeropuerto
   obtenerAeropuerto(id: ID, localizacion: String): Aeropuerto
 }
 
+# Reserved type in GraphQL for mutation operations
+# Root type for all write operations
 type Mutation {
+  # Pay atenttion that it's unnecessary the ',' to split the arguments
   crearPasajero(idAvion: ID! nombre: String, apellido: String): Pasajero
   actualizarVelocidadHora(idAvion: ID!, velocidadHora: Int): Avion!
 }
