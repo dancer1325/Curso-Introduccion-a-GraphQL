@@ -13,6 +13,8 @@
 * `npm install`
 * `npm run dev`
   * Problems:
+    * Problem 0: 'Failed to find .env file at default paths:'
+      * Solution: Create an '.env' file although it's not used at all
     * Problem1: ' "Query" defined in resolvers, but not in schema'
       * Solution: It's necessary to add 'type Query' in the '.gql' schema, but that will be fixed in next module
 

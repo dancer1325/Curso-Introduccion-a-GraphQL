@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "env-cmd nodemon src/index.js",
+    "dev:noenv": "nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
