@@ -1,4 +1,10 @@
 {
+  # 1) Create a query, without sending the mandatory arguments --> It fails
+  #obtenerAeropuertoPorId{
+  #  localizacion
+  #}
+
+  # 2) Passing properly the mandatory argument
   obtenerAeropuertoPorId(id: "a9397b9d-ede6-434b-80ed-a451eda35148"){
     localizacion
   }
