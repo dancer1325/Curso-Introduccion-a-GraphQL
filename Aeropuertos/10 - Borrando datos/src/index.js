@@ -129,6 +129,9 @@ const resolvers = {
 const server = new ApolloServer({
     typeDefs,
     resolvers,
+    // Uncomment the next properties to avoid attack points
+    // introspection: false,           // Not to expose schemas when you listen in Apollo Server's port
+    // playground: false               // Enable / Disable Apollo Server exposition
 });
 
 server.listen({port: 5000}).then(({url}) => {

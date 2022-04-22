@@ -19,7 +19,9 @@
 # How to execute GraphQL operations?
 * Steps
     * Run your app
-    * Login in 'https://studio.apollographql.com/graph', create a graph, configure with the url endpoint
+    * Login in 
+      1) Login in 'https://studio.apollographql.com/graph', create a graph, configure with the url endpoint
+      2) Navigate to 'https://www.graphqlbin.com/v2/new', configure with the url endpoint, type the queries / mutations operations
     * Launch it the operation in the previous url
 
 # Notes
