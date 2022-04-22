@@ -51,4 +51,10 @@
 * 'uid'
     * Generate randomized output strings of fixed length using lowercase alphanumeric characters
     * Used in our case, to create new ID for new objects
+* GraphDoc
+  * Allow adding documentation to the operations and generate documentation
+  * Steps
+    * `npm install -g @2fd/graphdoc` 
+    * `graphdoc -e UrlOfTheEndpointHostingApollo -o ./doc/schema`
+      * Generate the folder '/doc/schema' with all the documentation
   

@@ -1,5 +1,6 @@
 scalar DateTime
 
+# Net line represent a way to document the type
 """Esto representa un aeropuerto"""
 type Aeropuerto {
   """Esto representar el Identificador de un aeropuerto"""
