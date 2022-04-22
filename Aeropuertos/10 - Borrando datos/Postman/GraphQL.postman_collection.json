@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "2ac3f7c5-94de-4458-acfe-02248095b1dd",
+		"name": "GraphQL",
+		"description": "This collection is related to Aeropuertos, 10 ..., into [https://github.com/dancer1325/Curso-Introduccion-a-GraphQL](https://github.com/dancer1325/Curso-Introduccion-a-GraphQL)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Airport10ListarAeropuertos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query ExampleQuery {\n# 1) Querying, withot returning the surname\n  # listarAeropuertos {\n  #   id,\n  #   localizacion,\n  #   aviones{\n  #     id\n  #     pasajeros {\n  #       nombre\n  #     }\n  #   }\n  # }\n\n# 2) Querying, returning also the surname\n  listarAeropuertos {\n    id,\n    localizacion,\n    aviones{\n      id\n      pasajeros {\n        nombre\n        apellido\n      }\n    }\n  }\n}\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Airport10ObtenerAeropuertos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query ($localizacion: String) {\n  obtenerAeropuerto(localizacion: $localizacion){\n    localizacion\n    rutas{\n      fechaHoraSalida\n    }\n  }\n  # Since no argument is mandatory --> You can avoid sending\n  # Althought we get 0 results because we have got a business logic, filtering based on the arguments\n  # obtenerAeropuerto{\n  #   localizacion\n  #   rutas{\n  #     fechaHoraSalida\n  #   }\n  # }\n}\n",
+						"variables": "{\"localizacion\": \"Domenicafurt\"}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Airport10ObtenerAeropuertosPorId",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query ExampleQuery {\n  # It complains immediately if you don't match with the schema\n  # obtenerAeropuertoPorId{\n  #   localizacion\n  # }\n  obtenerAeropuertoPorId(id: \"a9397b9d-ede6-434b-80ed-a451eda35148\"){\n    localizacion\n  }\n}\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Airport10CrearPasajero",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\n  crearPasajero(idAvion:\"be496ba0-cb0b-4d36-b3cc-e941414970b1\", nombre:\"Julio\", apellido:\"Sotelo\"){\n    id\n    nombre\n    apellido\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Airport10VaciarPasajero",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\n  vaciarPasajeros(idAvion: \"005269b4-65ca-4d80-ab7e-6f99c814d0f7\"){\n    id\n    pasajeros {\n      nombre\n    }\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Airport10ActualizarVelocidadHora",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\n  actualizarVelocidadHora(idAvion: \"005269b4-65ca-4d80-ab7e-6f99c814d0f7\", velocidadHora: 200){\n      id\n      velocidadHora\n    }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
